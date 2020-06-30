@@ -10,26 +10,26 @@ $folder.Items |
 	sort receivedtime | 
 	%{
 		Clear-Host
-        $item = $_
-        $message="=============================================================================================================================================================="
-        $message += "`nSenderName : $($_.SenderName)"
-        $message += "`nConversationTopic : $($_.ConversationTopic)"
-        $message += "`nReceivedTime : $($_.ReceivedTime)"
-        $message += "`nTo : $($_.To)"
-        $message += "`nCC : $($_.CC)"
-        $message += "`n=============================================================================================================================================================="
-        $message += $_.body 
-        $message | more
-        Write-Host "=============================================================================================================================================================="
-        $decision = $Host.UI.PromptForChoice($message, $question, $choices, 4)
-        switch ($decision) {
-        0 {	$item.Unread = $false; $item.close(0); }
-        1 { $item.flagStatus = 2; $item.FlagIcon = 6; $item.close(0); }
-        2 { $item.Unread = $false; $item.flagStatus = 2; $item.FlagIcon = 6; $item.close(0); }
-        3 { Write-Host "Fetching Next Item..."; }
-        4 { Write-Host "Closing..."; break;}
-        }
-        if($decision -eq 4){break;}
+		$item = $_
+		$message="=============================================================================================================================================================="
+		$message += "`nSenderName : $($_.SenderName)"
+		$message += "`nConversationTopic : $($_.ConversationTopic)"
+		$message += "`nReceivedTime : $($_.ReceivedTime)"
+		$message += "`nTo : $($_.To)"
+		$message += "`nCC : $($_.CC)"
+		$message += "`n=============================================================================================================================================================="
+		$message += $_.body 
+		$message | more
+		Write-Host "=============================================================================================================================================================="
+		$decision = $Host.UI.PromptForChoice($message, $question, $choices, 4)
+		switch ($decision) {
+			0 { $item.Unread = $false; $item.close(0); }
+			1 { $item.flagStatus = 2; $item.FlagIcon = 6; $item.close(0); }
+			2 { $item.Unread = $false; $item.flagStatus = 2; $item.FlagIcon = 6; $item.close(0); }
+			3 { Write-Host "Fetching Next Item..."; }
+			4 { Write-Host "Closing..."; break;}
+		}
+        	if($decision -eq 4){break;}
 	}
 Write-Host -NoNewline 'Press any key to continue...';
 $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
