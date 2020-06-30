@@ -1,4 +1,7 @@
-# CheckEmailsOutlook
+# Productivity Tools
+The project contains some bunch of productivity tools which you can use to become more productivity.
+
+## CheckEmailsOutlook
 Check Unread Emails from Outlook and Mark the mails as Read or Flag or Read and Flag or Just go through the items.
 
 Simply put the powershell script at the location where you maintain your powershell automation scripts. For just calling it using double clicking a batch file also download the CheckEmailsOutlook.bat file.
